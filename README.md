@@ -11,6 +11,19 @@ making calls from command line (via your FritzBox)
 * pick up the default telephone configured in the FritzBox and listen to ringing phone
 * eventually talk to the person you are calling
 
+## Tips
+
+This script works nicely with [pycarddav](https://github.com/geier/pycarddav) and [choose](https://github.com/geier/choose).
+I use this shell script (called `call`) to make calls from my address book:
+
+    #!/bin/sh
+    number=`pc_query -t $1 | choose | cut -f 2`;  frytz.py $number
+
+Usage:
+
+    call Hanz
+
+will present a list of phone numbers matching to *Hanz*. Once one is selected in choose (arrows to navigate, *enter* to select), the number will be called.
 
 ## Caveats
 
